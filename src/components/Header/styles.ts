@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import hero from '../../assets/images/hero.png'
 
-const HeaderHero = styled.div`
+export const HeaderHero = styled.div`
   background-image: url(${hero});
   height: 384px;
   display: flex;
@@ -30,5 +30,3 @@ export const HeaderContainer = styled.div`
   align-items: center;
   height: 384px;
 `
-
-export default HeaderHero

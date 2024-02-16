@@ -3,7 +3,7 @@ import { color } from '../../styles'
 import hero from '../../assets/images/hero.png'
 import banner from '../../images/banner-trattoria.png'
 
-const HeaderMenu = styled.div`
+export const HeaderHero = styled.div`
   background-image: url(${hero});
   height: 384px;
   display: flex;
@@ -75,4 +75,3 @@ export const HeaderBannerTitle = styled.h1`
   text-align: left;
   position: absolute;
 `
-export default HeaderMenu

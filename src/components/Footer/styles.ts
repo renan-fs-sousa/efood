@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-import hero from '../../assets/images/hero.png'
-
-const FooterContainer = styled.div`
+export const FooterContainer = styled.div`
   margin-top: 40px;
   background-color: #ffebd9;
   height: 298px;
@@ -36,5 +34,3 @@ export const SocialContainer = styled.div`
     cursor: pointer;
   }
 `
-
-export default FooterContainer

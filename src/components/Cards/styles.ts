@@ -4,7 +4,7 @@ const CardList = styled.div`
   margin-top: 80px;
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-bottom: 120px;
 `
 
 export const CardGrid = styled.div`

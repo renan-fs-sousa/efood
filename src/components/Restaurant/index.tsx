@@ -1,18 +1,7 @@
 import { Link } from 'react-router-dom'
 import star from '../../assets/images/star.svg'
 
-import {
-  CardButton,
-  CardContainer,
-  CardHomeBottom,
-  CardHomeTop,
-  CardHomeP,
-  CardHomeH1,
-  CardContainerTitle,
-  CardHomeRate,
-  Tag,
-  ContainerTag
-} from './styles'
+import * as S from './styles'
 
 type Props = {
   title: string
@@ -23,28 +12,28 @@ type Props = {
 }
 
 const Restaurant = ({ title, image, text, rate, category }: Props) => (
-  <CardContainer>
-    <CardHomeTop>
+  <S.CardContainer>
+    <S.CardHomeTop>
       <img src={image} alt="" />
-      <ContainerTag>
+      <S.ContainerTag>
         {category.map((categ) => (
-          <Tag key={categ}>{categ}</Tag>
+          <S.Tag key={categ}>{categ}</S.Tag>
         ))}
-      </ContainerTag>
-    </CardHomeTop>
-    <CardHomeBottom>
-      <CardContainerTitle>
-        <CardHomeH1>{title}</CardHomeH1>
-        <CardHomeRate>
+      </S.ContainerTag>
+    </S.CardHomeTop>
+    <S.CardHomeBottom>
+      <S.CardContainerTitle>
+        <S.CardHomeH1>{title}</S.CardHomeH1>
+        <S.CardHomeRate>
           {rate} <img src={star} />
-        </CardHomeRate>
-      </CardContainerTitle>
-      <CardHomeP>{text}</CardHomeP>
+        </S.CardHomeRate>
+      </S.CardContainerTitle>
+      <S.CardHomeP>{text}</S.CardHomeP>
       <Link to="/menu">
-        <CardButton>Saiba mais</CardButton>
+        <S.CardButton>Saiba mais</S.CardButton>
       </Link>
-    </CardHomeBottom>
-  </CardContainer>
+    </S.CardHomeBottom>
+  </S.CardContainer>
 )
 
 export default Restaurant

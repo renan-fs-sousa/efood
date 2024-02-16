@@ -33,14 +33,14 @@ export const CardContainerTitle = styled.div`
 `
 export const CardMenuH1 = styled.h1`
   padding: 8px 0 0 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
   color: ${color.tagfontcolor};
 `
 
 export const CardButton = styled.button`
   padding: 4px 0px;
-  background-color: ${color.white};
+  background-color: ${color.tagfontcolor};
   color: ${color.orange};
   font-weight: 900;
   font-size: 14px;
