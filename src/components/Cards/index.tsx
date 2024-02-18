@@ -1,9 +1,9 @@
 import Restaurant from '../Restaurant'
 import CardList, { CardGrid } from './styles'
 
-import Restaurants from '../../models/Restaurant'
+import { Restaurants } from '../../pages/Home'
 
-type Props = {
+export type Props = {
   restaurants: Restaurants[]
 }
 
@@ -13,11 +13,13 @@ const ListCardHome = ({ restaurants }: Props) => (
       {restaurants.map((restaurant) => (
         <Restaurant
           key={restaurant.id}
-          title={restaurant.title}
-          image={restaurant.image}
-          text={restaurant.text}
-          rate={restaurant.rate}
-          category={restaurant.category}
+          title={restaurant.titulo}
+          image={restaurant.capa}
+          text={restaurant.descricao}
+          rate={restaurant.avaliacao}
+          category={restaurant.tipo}
+          destacado={restaurant.destacado}
+          id={restaurant.id}
         ></Restaurant>
       ))}
     </CardGrid>

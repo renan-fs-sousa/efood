@@ -1,9 +1,9 @@
 import Menu from '../Menu'
 import CardList, { CardGrid } from './styles'
 
-import MenuProducts from '../../models/Menu'
+import { MenuProducts } from '../../pages/Menu'
 
-type Props = {
+export type Props = {
   products: MenuProducts[]
 }
 
@@ -13,9 +13,12 @@ const ListCardMenu = ({ products }: Props) => (
       {products.map((product) => (
         <Menu
           key={product.id}
-          title={product.title}
-          image={product.image}
-          text={product.text}
+          id={product.id}
+          title={product.nome}
+          image={product.foto}
+          text={product.descricao}
+          preco={product.preco}
+          porcao={product.porcao}
         ></Menu>
       ))}
     </CardGrid>

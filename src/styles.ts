@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const color = {
   orange: '#E66767',
-  overlay: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))',
+  black: '#000',
   white: '#FFFFFF',
   backgroundColor: '#FFF8F2',
   tagfontcolor: '#FFEBD9'

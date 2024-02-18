@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { color } from '../../styles'
 import hero from '../../assets/images/hero.png'
-import banner from '../../images/banner-trattoria.png'
 
 export const HeaderHero = styled.div`
   background-image: url(${hero});
@@ -42,14 +41,25 @@ export const HeaderContainerLogo = styled.div`
   width: 40%;
 `
 export const HeaderBanner = styled.div`
-  background-image: ${color.overlay}, url(${banner});
   background-repeat: no-repeat;
   background-size: cover;
   height: 280px;
   display: flex;
   justify-content: center;
+  position: relative;
+  &::after {
+    position: absolute;
+    background-color: ${color.black};
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    opacity: 0.56;
+  }
 `
 export const HeaderBannerContainer = styled.div`
+  z-index: 1;
   max-width: 1024px;
   width: 100%;
   position: relative;

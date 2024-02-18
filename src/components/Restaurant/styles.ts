@@ -26,6 +26,8 @@ export const CardHomeTop = styled.div`
   img {
     width: 100%;
     display: block;
+    max-height: 217px;
+    object-fit: cover;
   }
 `
 export const CardHomeBottom = styled.div`
@@ -37,6 +39,8 @@ export const CardHomeBottom = styled.div`
 export const CardHomeP = styled.p`
   padding: 8px;
   line-height: 22px;
+  height: 110px;
+  margin-bottom: 8px;
   white-space: break-spaces;
   font-size: 14px;
 `
