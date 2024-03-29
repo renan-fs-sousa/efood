@@ -4,7 +4,8 @@ import ListCardHome from '../../components/Cards'
 
 //import sushi from '../../images/sushi.png'
 //import trattoria from '../../images/trattoria.png'
-import { useEffect, useState } from 'react'
+import { useGetRestaurantsQuery } from '../../services/api'
+// import { useEffect, useState } from 'react'
 
 // const restaurants: Restaurant[] = [
 //   {
@@ -75,21 +76,36 @@ export type Restaurants = {
   }
 }
 
+// const Home = () => {
+//   const [restaurants, SetRestaurants] = useState<Restaurants[]>([])
+
+//   useEffect(() => {
+//     fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+//       .then((res) => res.json())
+//       .then((res) => SetRestaurants(res))
+//   }, [])
+
+//   return (
+//     <>
+//       <Header />
+//       <ListCardHome restaurants={restaurants} />
+//     </>
+//   )
+// }
+
 const Home = () => {
-  const [restaurants, SetRestaurants] = useState<Restaurants[]>([])
+  const { data: restaurants } = useGetRestaurantsQuery()
 
-  useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
-      .then((res) => res.json())
-      .then((res) => SetRestaurants(res))
-  }, [])
+  if (restaurants) {
+    return (
+      <>
+        <Header />
+        <ListCardHome restaurants={restaurants} />
+      </>
+    )
+  }
 
-  return (
-    <>
-      <Header />
-      <ListCardHome restaurants={restaurants} />
-    </>
-  )
+  return <h3>Carregando...</h3>
 }
 
 export default Home

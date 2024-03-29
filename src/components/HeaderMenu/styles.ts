@@ -25,6 +25,7 @@ export const HeaderCart = styled.h1`
   width: 30%;
   text-align: right;
   font-size: 18px;
+  cursor: pointer;
 `
 
 export const HeaderContainer = styled.div`

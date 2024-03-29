@@ -14,9 +14,9 @@ const ListCardMenu = ({ products }: Props) => (
         <Menu
           key={product.id}
           id={product.id}
-          title={product.nome}
-          image={product.foto}
-          text={product.descricao}
+          nome={product.nome}
+          foto={product.foto}
+          descricao={product.descricao}
           preco={product.preco}
           porcao={product.porcao}
         ></Menu>

@@ -6,6 +6,7 @@ export const CardContainer = styled.div`
   width: 100%;
   padding: 8px;
   background-color: ${color.orange};
+  border-radius: 8px;
 `
 export const CardMenuTop = styled.div`
   padding: 0px;
@@ -13,9 +14,9 @@ export const CardMenuTop = styled.div`
   img {
     width: 100%;
     display: block;
-
     height: 175px;
     object-fit: cover;
+    border-radius: 8px;
   }
 `
 export const CardMenuBottom = styled.div`

@@ -3,19 +3,35 @@ import * as S from './styles'
 import logo from '../../assets/images/logo.svg'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import { useGetBannerQuery } from '../../services/api'
 
 import { useParams } from 'react-router-dom'
 import { Restaurants } from '../../pages/Home'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
+
+import { open } from '../../store/reducers/cart'
+
+// const { id } = useParams()
+// const [restaurants, setRestaurant] = useState<Restaurants>()
+
+// useEffect(() => {
+//   fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+//     .then((res) => res.json())
+//     .then((res) => setRestaurant(res))
+// }, [id])
+
 const Header = () => {
   const { id } = useParams()
-  const [restaurants, setRestaurant] = useState<Restaurants>()
+  const { data: restaurants } = useGetBannerQuery(id!)
 
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setRestaurant(res))
-  }, [id])
+  const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
+
+  const openCart = () => {
+    dispatch(open())
+  }
 
   return (
     <>
@@ -27,7 +43,9 @@ const Header = () => {
               <img src={logo} alt="Efood" />
             </Link>
           </S.HeaderContainerLogo>
-          <S.HeaderCart>0 produto(s) no carrinho</S.HeaderCart>
+          <S.HeaderCart onClick={openCart}>
+            {items.length} produto(s) no carrinho
+          </S.HeaderCart>
         </S.HeaderContainer>
       </S.HeaderHero>
       <S.HeaderBanner style={{ backgroundImage: `url(${restaurants?.capa})` }}>

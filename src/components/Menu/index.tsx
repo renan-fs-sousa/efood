@@ -1,21 +1,28 @@
 import * as S from './styles'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import close from '../../assets/images/close.svg'
+import { MenuProducts } from '../../pages/Menu'
+import { add, open } from '../../store/reducers/cart'
 
-type Props = {
-  id: number
-  title: string
-  image: string
-  text: string
-  preco: number
-  porcao: string
+// type Props = {
+//   id: number
+//   title: string
+//   image: string
+//   text: string
+//   preco: number
+//   porcao: string
+// }
+
+type PratoProps = {
+  prato: MenuProducts
 }
 
 type ModalState = {
   isVisible: boolean
 }
 
-const formatPrice = (preco = 0) => {
+export const formatPrice = (preco = 0) => {
   return new Intl.NumberFormat('pt-BR', {
     style: 'currency',
     currency: 'BRL'
@@ -32,7 +39,7 @@ const truncateDescription = (text: string) => {
   return text
 }
 
-const Menu = ({ title, image, text, preco, porcao }: Props) => {
+const Menu = ({ foto, nome, descricao, porcao, preco, id }: MenuProducts) => {
   const [modal, setModal] = useState<ModalState>({
     isVisible: false
   })
@@ -43,16 +50,31 @@ const Menu = ({ title, image, text, preco, porcao }: Props) => {
     })
   }
 
+  const product = {
+    foto,
+    nome,
+    descricao,
+    porcao,
+    preco,
+    id
+  }
+
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(add(product))
+    dispatch(open())
+  }
+
   return (
     <S.CardContainer>
       <S.CardMenuTop>
-        <img src={image} alt="" />
+        <img src={foto} alt="" />
       </S.CardMenuTop>
       <S.CardMenuBottom>
         <S.CardContainerTitle>
-          <S.CardMenuH1>{title}</S.CardMenuH1>
+          <S.CardMenuH1>{nome}</S.CardMenuH1>
         </S.CardContainerTitle>
-        <S.CardMenuP>{truncateDescription(text)}</S.CardMenuP>
+        <S.CardMenuP>{truncateDescription(descricao)}</S.CardMenuP>
         <S.CardButton
           onClick={() => {
             setModal({
@@ -74,7 +96,7 @@ const Menu = ({ title, image, text, preco, porcao }: Props) => {
             />
             <div>
               <img
-                src={image}
+                src={foto}
                 alt="Ícone de fechar"
                 onClick={() => {
                   closeModal()
@@ -82,10 +104,10 @@ const Menu = ({ title, image, text, preco, porcao }: Props) => {
               />
             </div>
             <S.InfosContainer>
-              <h4>{title}</h4>
-              <p>{text}</p>
+              <h4>{nome}</h4>
+              <p>{descricao}</p>
               <p>Serve de {porcao}</p>
-              <S.CardButton>
+              <S.CardButton onClick={addToCart}>
                 Adicionar ao carrinho - {formatPrice(preco)}
               </S.CardButton>
             </S.InfosContainer>
