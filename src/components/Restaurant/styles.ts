@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { color } from '../../styles'
+import { breakpoints, color } from '../../styles'
 
 const CardList = styled.div`
   margin-top: 80px;
@@ -28,6 +28,12 @@ export const CardHomeTop = styled.div`
     display: block;
     max-height: 217px;
     object-fit: cover;
+    @media (max-width: ${breakpoints.tablet}) {
+      padding: 0 20px;
+      display: block;
+      bottom: 3px;
+      margin-top: 60px;
+    }
   }
 `
 export const CardHomeBottom = styled.div`

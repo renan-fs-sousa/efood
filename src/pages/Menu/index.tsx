@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useGetRestaurantQuery } from '../../services/api'
 import HeaderMenu from '../../components/HeaderMenu'
 import ListCardMenu from '../../components/CardsMenu'
+import Loader from '../../components/Loader'
 
 export type MenuProducts = {
   id: number
@@ -38,7 +39,7 @@ const Menu = () => {
     )
   }
 
-  return <h3>Carregando...</h3>
+  return <Loader />
 }
 
 export default Menu

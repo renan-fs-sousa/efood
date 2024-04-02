@@ -5,18 +5,9 @@ import close from '../../assets/images/close.svg'
 import { MenuProducts } from '../../pages/Menu'
 import { add, open } from '../../store/reducers/cart'
 
-// type Props = {
-//   id: number
-//   title: string
-//   image: string
-//   text: string
-//   preco: number
-//   porcao: string
+// type PratoProps = {
+//   prato: MenuProducts
 // }
-
-type PratoProps = {
-  prato: MenuProducts
-}
 
 type ModalState = {
   isVisible: boolean

@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import { color } from '../../styles'
-//import { TagContainer } from '../Tag/styles'
+import { breakpoints, color } from '../../styles'
+import { ButtonContainer } from '../Button/styles'
 
-import lixeira from '../../assets/images/lixeira.svg'
+type InputGroupProps = {
+  maxWidth?: string
+}
 
 export const Overlay = styled.div`
   position: absolute;
@@ -10,7 +12,8 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.73);
+  background-color: #000;
+  opacity: 0.8;
 `
 
 export const CartContainer = styled.div`
@@ -28,29 +31,50 @@ export const CartContainer = styled.div`
   }
 `
 
-export const Sidebar = styled.aside`
+export const SideBar = styled.aside`
   background-color: ${color.orange};
   z-index: 1;
-  padding: 32px 8px 0;
-  max-width: 360px;
-  width: 100%;
+  padding: 32px 8px 0px 8px;
+  width: 360px;
 
   .empty-text {
     font-size: 14px;
+    font-weight: bold;
     line-height: 22px;
     color: ${color.tagfontcolor};
     text-align: center;
   }
+
+  @media (max-width: ${breakpoints.phone}) {
+    width: 80%;
+  }
+
+  .error-message {
+    color: ${color.tagfontcolor};
+    font-size: 14px;
+    text-align: center;
+    padding-top: 8px;
+  }
+`
+
+export const Price = styled.p`
+  font-weight: 700;
+  font-size: 14px;
+  justify-content: space-between;
+  color: ${color.tagfontcolor};
+  display: flex;
+  margin-top: 40px;
+  margin-bottom: 16px;
 `
 
 export const CartItem = styled.li`
   display: flex;
   background-color: ${color.tagfontcolor};
-  padding: 8px;
   position: relative;
+  padding: 8px;
   margin-bottom: 16px;
 
-  img {
+  > img {
     height: 80px;
     width: 80px;
     object-fit: cover;
@@ -58,46 +82,115 @@ export const CartItem = styled.li`
   }
 
   h3 {
-    color: ${color.orange};
+    font-size: 18px;
+    font-weight: 900;
+    padding-bottom: 16px;
+  }
+
+  p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+`
+
+export const Dumpster = styled.img`
+  width: 16px;
+  height: 16px;
+  bottom: 8px;
+  right: 8px;
+  position: absolute;
+  cursor: pointer;
+`
+
+export const Form = styled.form`
+  ${ButtonContainer} {
+    margin-top: 8px;
+  }
+
+  .delivery-form {
+    margin-bottom: 16px;
+  }
+`
+
+export const DeliveryText = styled.h4`
+  font-size: 16px;
+  font-weight: bold;
+  color: ${color.tagfontcolor};
+  margin-bottom: 16px;
+`
+
+export const InputGroup = styled.div<InputGroupProps>`
+  flex: auto;
+  max-width: ${(props) => props.maxWidth || 'auto'};
+
+  label {
+    font-size: 14px;
     font-weight: bold;
+    color: ${color.tagfontcolor};
+    display: block;
+    margin: 8px 0 8px 0;
+  }
+
+  input {
+    width: 100%;
+    background-color: ${color.tagfontcolor};
+    height: 32px;
+    border: 1px solid ${color.tagfontcolor};
+
+    &.error {
+      border: 2px solid red;
+    }
+  }
+`
+
+export const ZipCodeContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    max-width: 155px;
+  }
+`
+
+export const CardContainer = styled.div`
+  display: flex;
+  gap: 32px;
+`
+
+export const ExpirationCard = styled.div`
+  display: flex;
+  gap: 34px;
+  margin-bottom: 24px;
+
+  input {
+    max-width: 155px;
+  }
+`
+
+export const ConclusionOrder = styled.div`
+  color: ${color.tagfontcolor};
+
+  h4 {
     font-size: 16px;
+    font-weight: bold;
     margin-bottom: 16px;
   }
 
-  button {
-    background-image: url(${lixeira});
-    width: 16px;
-    height: 16px;
-    border: none;
-    background-color: transparent;
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    cursor: pointer;
-  }
-
-  span {
+  p {
     font-size: 14px;
-    display: block;
+    line-height: 22px;
+    margin-bottom: 16px;
   }
 `
 
-export const ValorTotal = styled.div`
-  margin: 40px 0 16px;
-  color: ${color.tagfontcolor};
-  display: flex;
-  justify-content: space-between;
-  font-weight: bold;
-  font-size: 14px;
-`
-
-export const ButtonContinuar = styled.button`
-  border: none;
+export const CustomButton = styled.button`
   background-color: ${color.tagfontcolor};
   color: ${color.orange};
   font-size: 14px;
-  font-weight: bold;
-  padding: 4px;
+  font-weight: 700;
+  border: none;
+  text-align: center;
   width: 100%;
+  padding: 4px 0;
   cursor: pointer;
 `

@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
 import ListCardHome from '../../components/Cards'
+import Loader from '../../components/Loader'
 //import Restaurant from '../../models/Restaurant'
 
 //import sushi from '../../images/sushi.png'
@@ -105,7 +106,7 @@ const Home = () => {
     )
   }
 
-  return <h3>Carregando...</h3>
+  return <Loader />
 }
 
 export default Home

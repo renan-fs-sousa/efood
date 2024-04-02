@@ -9,6 +9,12 @@ export const color = {
   tagfontcolor: '#FFEBD9'
 }
 
+export const breakpoints = {
+  desktop: '1024px',
+  tablet: '768px',
+  phone: '480px'
+}
+
 export const GlobalCss = createGlobalStyle`
     * {
         margin: 0;

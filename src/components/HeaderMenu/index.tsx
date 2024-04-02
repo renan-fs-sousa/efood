@@ -2,11 +2,10 @@ import * as S from './styles'
 
 import logo from '../../assets/images/logo.svg'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+
 import { useGetBannerQuery } from '../../services/api'
 
 import { useParams } from 'react-router-dom'
-import { Restaurants } from '../../pages/Home'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
